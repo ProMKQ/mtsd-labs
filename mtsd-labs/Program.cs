@@ -93,14 +93,13 @@ internal class Program
             return;
         }
 
-        if (coef[0] == 0)
-        {
-            Console.WriteLine("Error: The coefficient 'a' must not be zero.");
-            return;
-        }
-
         Console.WriteLine($"Equation: ({coef[0]}) x^2 + ({coef[1]}) x + ({coef[2]}) = 0");
 
+        if (coef[0] == 0 && coef[1] == 0 && coef[2] == 0)
+        {
+            Console.WriteLine("There are infinite roots");
+            return;
+        }
         List<double> roots = SolveQuadratic(coef[0], coef[1], coef[2]);
 
         Console.WriteLine(roots.Count == 1 ? $"There is 1 root" : $"There are {roots.Count} roots");
